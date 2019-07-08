@@ -1,0 +1,25 @@
+{
+  "name": "appchat-nodejs-reactjs-redux-saga",
+  "version": "1.0.0",
+  "description": "AppChat-nodejs-reactjs-redux-saga",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panasoniclam/AppChat-nodejs-reactjs-redux-saga.git"
+  },
+  "author": "lamnn8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panasoniclam/AppChat-nodejs-reactjs-redux-saga/issues"
+  },
+  "homepage": "https://github.com/panasoniclam/AppChat-nodejs-reactjs-redux-saga#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}

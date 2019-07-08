@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head><title>app-chat</title>  
+    <script src="jquery.js"></script>
+  
+    <script src="socket.io/socket.io.js"></script>
+    
+    </script>  
+    <script src="require.js"></script>
+     <link rel="stylesheet" type="text/css" href="layout.css"/>
+    </head>
+    
+    <body>
+        <!-- <div id="contend">click</div>
+        <h1 id="contendh1"></h1> -->
+        <div id="wrapper">
+            <div id="loginForm">
+                <h3>what's your name</h3>
+                <input type="text" id="txtUsername"/>
+                <input type="button" value="Register" id="buttonRegester"/>
+            </div>
+            <div id="chatForm">
+                <div id="left">
+                    <div id="boxTitle">User Onlines</div>
+                    <div id="boxContend">
+                        <div class="useronline">ahihi</div>
+                        <div class="useronline">ahihi</div>
+                        <div class="useronline">ahihi</div>
+                    </div>
+                </div>
+                <div id="right">
+                    <div id="sayHi">
+                        Hello <span id="currentUser">Teo</span>
+                        <input type="button" id="btnLogout" value="Logout"/>
+                        <div id="listMessage">
+
+                        </div>
+                        <input type="text" id="txtMessage"/>
+                        <input id="btnSendMessage" value="send" type="button"/>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+    </body>
+</html>
