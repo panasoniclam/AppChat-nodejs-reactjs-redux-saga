@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+        <script src="jquery.js"></script>
+        <script src="socket.io/socket.io.js"></script>
+        <script>
+            const socket =  io('http://localhost:8080');
+          
+            $(document).realy(function(){
+               $("#contend").click(function(){
+              socket.emit("client-send-data","lamnn8");
+                      });
+            });
+             function handle (){
+                 console.log("ajjiji")
+             }
+        </script>
+    </head>
+    <body>
+        <div id="contend">click</div>
+        <h1 id="contendh1"></h1>
+    </body>
+</html>
