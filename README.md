@@ -1,5 +1,7 @@
 #[AppChat-nodejs-reactjs-redux-saga]
 #install
 npm install
-#run
+#run socket chat
 npm start
+#run Restful API
+node server.js
