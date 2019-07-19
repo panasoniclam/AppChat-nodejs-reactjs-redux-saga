@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -9,6 +11,7 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 server.listen(3000);
 
+console.log("lamnn",process.env.VIET_NAM);
 //user array
 var User = [];
 
@@ -26,7 +29,7 @@ io.on("connection",function(socket){
         if(User.indexOf(data)>=0){
             socket.emit("server-send-fail");
         }
-        else{
+        else{  
            User.push(data);
            socket.Username = data;
            socket.emit("server-send-success",data);
