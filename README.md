@@ -1,5 +1,5 @@
 #[AppChat-nodejs-reactjs-redux-saga]
-#install
+##install
 npm install
 #run socket chat
 npm start
