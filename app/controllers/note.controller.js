@@ -1,7 +1,7 @@
 const Note = require('./../models/note.model')
 module.exports = {
     //create  note and save note
-    index:(req,res,next)=>{
+    findAll:(req,res,next)=>{
         Note.find({})
         .then(project=>{
             console.log(project)
@@ -37,5 +37,28 @@ module.exports = {
                     message:err.message || 'some error occured while createinh the note'
                 })
             })
+    },
+    findOne:(req,res,next)=>{
+        Note.findById(req.params.noteId)
+        .then(note=>{
+            if(!note){
+                return res.status(404).send({
+                    message:'Note not found with od'+req.params.noteId
+                })
+            }
+            res.send(note)
+        })
+        .catch(err=>{
+            if(err.kind == 'ObjectId'){
+                return res.status(404).send({
+                    message:'Note not found with id'+ req.params.noteId
+                });
+
+            }
+            return res.status(500).send({
+                message:'error retrieving note with id'+req.params.noteId
+            })
+        })
+        
     }
 }
