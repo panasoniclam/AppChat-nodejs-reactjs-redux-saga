@@ -60,5 +60,59 @@ module.exports = {
             })
         })
         
+    },
+    update:(req,res,next)=>{
+        //validate requested
+        if(!req.body.contend){
+            return res.status(400).send({
+                message:'Note contend can be not empty'
+            })
+        }
+         //find note and update it with the request body
+         Note.findByIdAndUpdate(req.params.noteId,{
+             title:req.body.title,
+             contend:req.body.contend
+         },{new:true})
+         .then(note=>{
+             if(!note){
+                 return res.status(404).send({
+                     message:'Note not found with id'+req.params.noteId
+                 });
+             }
+         })
+         .catch(err=>{
+             if(err.kind=== 'ObjectId'){
+                 return res.status(404).send({
+                     message:'Note not found id'+req.params.noteId
+                 })
+             }
+             return res.status(500).send({
+                 message:'Error updating note with id'+req.params.noteId
+             })
+         })
+    },
+    delete:(req,res,next)=>{
+        Note.findByIdAndRemove(req.params.noteId)
+        .then(note=>{
+            if(!note)
+            {
+                 return res.status(404).send({
+                message:'Note not found with id'+res.params.noteId
+                })
+            }
+           res.send({
+               message:'Note deleted successful !'
+           });
+        })
+        .catch(err=>{
+            if(err.kind ==='ObjectId' || err.name === 'NotFound'){
+                return res.status(404).send({
+                    message:'note not found with id'+req.params.noteId
+                })
+            }
+            return res.status(500).send({
+                message:'cound not delete note with id'+req.params.noteId
+            })
+        })
     }
 }

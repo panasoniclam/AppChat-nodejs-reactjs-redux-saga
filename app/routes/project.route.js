@@ -13,4 +13,6 @@ route.route('/note')
     .post(Note.create)
 route.route('/note/:noteId')
     .get(Note.findOne)
+    .put(Note.update)
+    .delete(Note.delete)
 module.exports = route;
