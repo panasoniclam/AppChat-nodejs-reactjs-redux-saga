@@ -13,12 +13,11 @@ module.exports = {
     },
     create:(req,res,next)=>{
         //validate request
-        if(!req.body.contend){
+        if(!req.body.title){
             return res.status(400).send({
                 message:'Note contend can not be empty'
             });
         }
-
         //Create Note
         const note = new Note({
             title:req.body.title || 'Untitled Note',
