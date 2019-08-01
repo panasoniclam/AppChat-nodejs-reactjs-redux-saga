@@ -1,14 +1,16 @@
 const express = require('express');
+// import express from 'express'
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose')
 const app = express();
 require('dotenv').config()
 mongoose.connect(
-    'mongodb+srv://admin:'+process.env.PASS+'@cluster0-nh64w.mongodb.net/test?retryWrites=true&w=majority',
+     process.env.DATABASE_URL,
     {
         useNewUrlParser:true
-    }
+    },
+    ()=>console.log('connect congr')
 )
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -21,9 +23,15 @@ app.use(logger('dev'));
 // });
 
 const project = require('./app/routes/project.route');
+const userJWT = require('./app/routes/route.User');
+const LamNN = require('./app/routes/route.lamnn')
+// const PerUser = require('./app/models/model.persiting')
+app.use('/user',userJWT);
 app.use('/projects',project);
+app.use('/Test',LamNN);
+// app.use('/Lam',PerUser);
 app.use((req,res,next)=>{
-    const err = new Error('not found');
+    const err =  Error('not found');
     err.status = 404;
     next(err);
 })
