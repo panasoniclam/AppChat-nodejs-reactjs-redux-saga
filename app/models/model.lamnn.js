@@ -1,4 +1,4 @@
-const mongodb = require('mongoose');
+const mongodb = require('mongoose')
 const Schema = mongodb.Schema;
 const bcript = require('bcrypt')
 const lamnnSchema = new Schema({

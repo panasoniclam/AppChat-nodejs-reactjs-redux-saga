@@ -12,6 +12,7 @@ mongoose.connect(
     },
     ()=>console.log('connect congr')
 )
+console.log(process.env.DATABASE_URL)
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(logger('dev'));
@@ -26,9 +27,11 @@ const project = require('./app/routes/project.route');
 const userJWT = require('./app/routes/route.User');
 const LamNN = require('./app/routes/route.lamnn')
 // const PerUser = require('./app/models/model.persiting')
+const Native = require('./app/routes/route.native')
 app.use('/user',userJWT);
 app.use('/projects',project);
 app.use('/Test',LamNN);
+app.use('/native',Native)
 // app.use('/Lam',PerUser);
 app.use((req,res,next)=>{
     const err =  Error('not found');
