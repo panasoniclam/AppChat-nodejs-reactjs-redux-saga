@@ -1,3 +1,3 @@
 module.exports = {
-    'jwtSecret': 'taodeptrai',
+    'jwtSecret': 'ahihi',
 };
