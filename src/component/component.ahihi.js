@@ -1,11 +1,19 @@
 import React from 'react'
 class Test extends React.Component{
-    render(){
-        return(
-            <div>
-                <h1>jdjdjdj</h1>
-            </div>
-        )
+    constructor(props){
+        super(props)
     }
+    componentWillMount(){
+        console.log("ahihih")
+    }
+     render(){
+         
+         return (
+             <div>
+                 <button>click</button>
+             </div>
+         )
+     }
+    
 }
 export default Test

@@ -6,16 +6,28 @@ module.exports  = {
         path:path.join(__dirname,'/dist'),
         filename:"index_handle.js"
     },
+   
     module:{
-        test:/\.js/,
-        exclude:/node_modules/,
-        use:{
-            loaders:['babel-loader']
-        }
+        rules:[
+            {
+                test:/\.js$/,
+                exclude:/node_modules/,
+               use: ['babel-loader']
+           
+            },
+           {
+               test:/\.css$/,
+               exclude:/node_modules/,
+               use:['css-loader','style-loader','html-loader']
+           }
+        ]
+   
     },
-    plugin:[
-        new HtmtWebpackPlugin({
-            template:'./src/index.html'
-        })
-    ]
+    plugins:
+        [
+            new HtmtWebpackPlugin({
+                template:'./src/index.html'
+            })
+        ]
+    
 }
