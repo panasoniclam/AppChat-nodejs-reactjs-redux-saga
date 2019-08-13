@@ -1,16 +1,22 @@
 import React from 'react'
+import Lam from './component.lam'
 class Test extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            lamnn:"ahehe"
+        }
     }
-    componentWillMount(){
-        console.log("ahihih")
+    handleState(){
+        this.setState({})
     }
+   
      render(){
-         
+
          return (
              <div>
-                 <button>click</button>
+                 <button onClick={this.handleState} >click</button>
+                  <h1>{this.state.lamnn} </h1>
              </div>
          )
      }
