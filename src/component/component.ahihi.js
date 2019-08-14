@@ -7,12 +7,15 @@ class Test extends React.Component{
             lamnn:"ahehe"
         }
     }
+  
     handleState(){
-        this.setState({})
+        this.setState({
+            lamnn:"sss"
+        })
     }
    
      render(){
-
+        console.log(this.props.location)
          return (
              <div>
                  <button onClick={this.handleState} >click</button>
